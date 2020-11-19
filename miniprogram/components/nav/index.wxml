@@ -1,0 +1,6 @@
+<!--components/classic/nav/index.wxml-->
+<view class="nav-container">
+    <image class="arrow" src="{{latest ? leftDisSrc : leftSrc}}" bind:tap="onLeft"></image>
+    <text>{{title}}</text>
+    <image class="arrow" src="{{first ? rightDisSrc : rightSrc}}" bind:tap="onRight"></image>
+</view>

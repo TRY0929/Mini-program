@@ -1,0 +1,129 @@
+<!--miniprogram/pages/clock/clock.wxml-->
+<view class='banner'>
+    <view class='continue'>
+        <view>毎日頑張ってね～</view>
+        <view>今まで：<text>{{totalDays}}</text> 日頑張った</view>
+    </view>
+</view> 
+<view class='sign'>
+    <view class='sign_box'>
+        <view class='pillar'>
+            <view class='post'>
+                <view></view>
+            </view>
+            <view class='post'>
+                <view></view>
+            </view>
+            <view class='post'>
+                <view></view>
+            </view>
+            <view class='post'>
+                <view></view>
+            </view>
+            <view class='post'>
+                <view></view>
+            </view>
+            
+        </view>
+        <view class='sign_day'>
+            <image bindtap="onShowCalender" src='/images/clock/sign_icon.png'></image>
+            <view>連続頑張った：<text>{{continuityDays}}</text> 日</view>
+        </view>
+        <view class='sign_content'>
+            <view class='week'>
+                <block wx:for="{{week}}" wx:key="index">
+                    <view class='date'>
+                        <view style='width: {{ sysW }}px; height: {{ sysW }}px; line-height: {{ sysW }}px;'>{{item}}</view>
+                    </view>
+                </block>
+            </view>
+            <view class='week'>
+                <block wx:for="{{day}}" wx:key="index">
+                    <view class="date {{ item.date ==  currentDate ? 'dateOn' : ''}}" style='width: {{ sysW }}px; height: {{ sysW }}px; line-height: {{ sysW }}px;' bindtap="{{item.src?'toggleIconAndWordWeek':''}}" data-index="{{index}}">
+                        <view id="{{item.src?'fuconl':''}}" style="{{item.src && !item.check?'visibility: hidden;':''}}">{{item.date}}</view>
+                        <view class='clocksucceed' wx:if="{{item.src && !item.check}}">
+                            <image src='{{item.src}}'></image>
+                        </view>
+                    </view>
+                </block>
+            </view>
+            <view class='circle'>
+                <view class='incircle' style="{{clocked?'background-color:#e7ebed;cursor:auto;':''}}">
+                    <view class='excircle' bindtap="{{clocked?'':'setClock'}}">
+                        <view class='innercircle' style="{{clocked?'background-color:#ddd;':''}}">{{clocked?'已打卡':'打卡'}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<!-- 弹出部分 -->
+<view class='calendar' style='display:{{showCalender}}'>
+    <view class='bg' bindtap='onHideCalender'></view>
+    <view class='calendar_box'>
+        <view class="canlendarBgView">
+            <view class="canlendarView">
+                <view class="canlendarTopView">
+                    <view class="leftBgView" bindtap="handleCalendar" data-handle="prev">
+                        <view class="leftView">
+                            <text class="cuIcon-back">←</text>
+                        </view>
+                    </view>
+                    <view class="centerView">{{currentYear || "--"}} 年 {{currentMonth || "--"}} 月</view>
+                    <view class="rightBgView" bindtap="handleCalendar" data-handle="next">
+                        <view class="leftView">
+                            <text class="cuIcon-right">→</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="weekBgView">
+                    <view
+                      style='width: {{ sysW }}px; height: {{ sysW }}px; line-height: {{ sysW }}px;'
+                      class="weekView"
+                      wx:for="{{week}}"
+                      wx:key="index"
+                      data-idx="{{index}}"
+                    >{{item}}</view>
+                </view>
+                <view class="dateBgView">
+                    <view
+                      wx:if="{{hasEmptyGrid}}"
+                      class="dateView"
+                      style='opacity: 0;width: {{ sysW }}px; height: {{ sysW }}px; line-height: {{ sysW }}px;' 
+                      wx:for="{{emptyGrids}}"
+                      wx:key="index"
+                      data-index="{{index}}">1
+                    </view>
+                    <view
+                      style='width: {{ sysW }}px; height: {{ sysW }}px; line-height: {{ sysW }}px;'
+                      class="dateView {{item.date == currentDate && judgeCurrentMonth == 1?'dateOn':''}}"
+                      wx:for="{{days}}"
+                      wx:key="index"
+                      bindtap="{{item.src?'toggleIconAndWord':''}}"
+                      data-index="{{index}}"
+                    >
+                        <view
+                          style="{{item.src && !item.check?'visibility: hidden;':''}}" id="{{item.src?'fuconl':''}}"
+                          class="datesView"
+                        >{{item.date}}</view>
+                        <view class='clocksucceed' wx:if="{{item.src && !item.check}}">
+                          <image src='{{item.src}}'></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class='del' bindtap="onHideCalender">
+            <text class="cuIcon-close">x</text>
+        </view>
+    </view>
+</view>
+<view class="load" style="{{showPopup?'':'top:calc((100vh - 750rpx)/2);opacity: 0;z-index:-1;'}}">
+  <image class="loadingpic" src="/images/clock/light.png"></image>
+  <image class="load-image" src="/images/clock/register.png"></image>
+  <view class="load-content">
+    <view>やったね！</view>
+    <view>連続頑張った　<span>{{continuityDays}}</span>　日</view>
+    <view bindtap="hidePopup">わかった</view>
+  </view>
+</view>

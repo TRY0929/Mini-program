@@ -1,0 +1,13 @@
+<!--components/classic/episode/index.wxml-->
+<view class="episode-container">
+    <view class="index-container">
+        No.
+        <text class="index-text">{{index}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="time-container" ontap="onDateTap">
+        <text class="month-text">{{month}}</text>
+        <text class="year-text">{{year}}</text>
+    </view>
+    <view class="clock">Click the Date!</view>
+</view>

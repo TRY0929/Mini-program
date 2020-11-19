@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "v-like": "../../components/like/index",
+    "v-nav": "../../components/nav/index",
+    "v-button": "../../components/image-button/index",
+    "v-episode": "../../components/episode/index"
+  }
+}

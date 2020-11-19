@@ -1,0 +1,320 @@
+/* miniprogram/pages/clock/clock.wxss */
+/* @import '../../../components/buteic/buteic.wxss'; */
+page{
+  background-color: #f4f4f4;
+}
+.banner image{
+  width:750rpx;
+  height:256rpx;
+  vertical-align: top;
+}
+.continue{
+  background-color: #fff;
+  padding:30rpx 20rpx;
+}
+.continue view:first-child{
+  font-size:34rpx;
+  color:#454545;
+  padding-bottom:20rpx;
+}
+.continue view:last-child{
+  font-size:32rpx;
+  color:#707070;
+
+}
+.continue view text{
+  color:#dd2522;
+}
+.sign{
+  margin-top:30rpx;
+}
+.sign_box{
+  background-color:#fff;
+  width:677rpx;
+  margin:0 auto;
+  position:relative;
+  border-radius:15rpx;
+}
+.pillar{
+  overflow:hidden;
+  position:absolute;
+  top:-16rpx;
+  width:100%;
+}
+.pillar .post{
+   float:left;
+   width:20%;
+   text-align: center;
+}
+.pillar .post view{
+  display:inline-block;
+  width:18rpx;
+  height:42rpx;
+  background-color:#53acfc;
+  border-radius:20rpx;
+}
+.sign_day{
+  padding:60rpx 20rpx 0;
+}
+.sign_day image{
+  width:45rpx;
+  height:45rpx;
+  vertical-align: middle;
+  position: relative;
+  bottom: 6rpx;
+}
+.sign_day view{
+  display:inline-block;
+  font-size: 30rpx;
+  margin-left: 14rpx;
+  color:#707070;
+}
+.sign_day view text{
+  color:#dd2522;
+}
+.sign_content{
+  padding:20rpx;
+}
+.week{
+  overflow:hidden;
+}
+.date{
+  display:inline-block;
+  text-align: center;
+  position: relative;
+  box-sizing: border-box;
+}
+.date view{
+  display: inline-block;
+  font-size:30rpx;
+  color:#707070;
+}
+.sign_content .week:nth-child(2) .date view{
+  color:#454545;
+}
+.circle{
+  padding:50rpx 0;
+}
+.incircle{
+  width:225rpx;
+  height:225rpx;
+  background-color: #cce6ff;
+  border-radius:50%;
+  padding: 10rpx;
+  margin:20rpx auto;
+  cursor: pointer;
+}
+.excircle{
+  width:100%;
+  height: 100%;
+  background-color:#fff;
+  border-radius:50%;
+  position: relative;
+}
+.innercircle{
+  width:190rpx;
+  height:190rpx;
+  background-color: #8bc4f6;
+  border-radius:50%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:#fff;
+  font-size:36rpx;
+}
+.calendar{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  display:none;
+}
+.bg{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background-color:rgba(0,0,0,.3);
+}
+.calendar_box{
+  position: absolute;
+  top:180rpx;
+  left:40rpx;
+  width:677rpx;
+  background-color:#fff;
+  padding:20rpx;
+  box-sizing: border-box;
+}
+.canlendarTopView{
+  overflow:hidden;
+  padding:40rpx 20rpx;
+  margin-left:20rpx;
+  display: flex;
+  align-items: center;
+}
+.leftBgView{
+  float:left;
+  width:153rpx;
+  text-align: center;
+}
+.leftView image{
+  width:60rpx;
+  height:60rpx;
+}
+.centerView{
+  float:left;
+  font-size:32rpx;
+  height:60rpx;
+  line-height:60rpx;
+  width:260rpx;
+  text-align: center;
+}
+.rightBgView{
+  float:left;
+  width:156rpx;
+  text-align: center;
+}
+.rightView image{
+  width:60rpx;
+  height:60rpx;
+}
+.weekBgView{
+  overflow:hidden;
+}
+.weekView{
+  float:left;
+  width:14.28571428571429%;
+  text-align: center;
+  font-size:30rpx;
+  color:#707070;
+}
+.dateBgView{
+  overflow:hidden;
+  margin-bottom:20rpx;
+}
+.dateView{
+  display:inline-block;
+  text-align: center;
+  position:relative;
+}
+.datesView{
+  font-size:30rpx;
+  color:#2b2b2b;
+}
+.dateOn{
+border-radius: 50%;
+background-color: #53acfc;
+color: #fff !important;
+}
+.del{
+  position:absolute;
+  top:-20rpx;
+  right:-20rpx;
+  width:50rpx;
+  height:50rpx;
+  background-color:#909090;
+  border-radius:50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.del>text{
+  color: #fff;
+  font-size: 36rpx;
+}
+.leftView>text{
+  font-size: 40rpx;
+}
+.clocksucceed{
+  position:absolute;
+  top:-3rpx;
+  left:20rpx;
+}
+.clocksucceed image{
+  width:50rpx;
+  height:50rpx;
+  vertical-align: middle;
+  position: relative;
+  bottom: 4rpx;
+}
+#fuconl{
+  color: #FF6666;
+}
+/* 签到弹窗 */
+.load{
+  width: 80%;
+  height: 600rpx;
+  position: fixed;
+  top:calc((100vh - 800rpx)/2);
+  left: 10%;
+  transition: all 0.3s ease-in-out 0s;
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  opacity: 1;
+  z-index: 10;
+}
+.loadingpic {
+  width: 100%;
+  height: 93%;
+  position: absolute;
+  animation: load 3s linear 1s infinite;
+  z-index: 10;
+  margin-top: 7%;
+}
+@keyframes load{
+  0%{
+		webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100%{
+		webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+.load-image{
+  width:400rpx;
+  height:400rpx;
+  margin: 100rpx calc((100% - 400rpx)/2);
+  position: absolute;
+  z-index: 11;
+}
+.load-content{
+  width:400rpx;
+  height:400rpx;
+  /* margin: 100rpx calc((100% - 400rpx)/2); */
+  margin: 100rpx auto;
+  position: relative;
+  z-index: 12;
+  text-align: center;
+  padding: 25% 10% 5% 10%;
+}
+.load-content>view:nth-child(1){
+  font-size: 36rpx;
+  color: #fff;
+  font-weight: 700;
+}
+.load-content>view:nth-child(2){
+  color: #fff;
+  opacity: 0.7;
+  margin: 20rpx 0;
+  font-size: 26rpx;
+  font-weight: 700;
+}
+.load-content>view:nth-child(3){
+  width: 85%;
+  margin: 30rpx 7.5% 0 7.5%;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-radius: 40rpx;
+  background-color: #F8D168;
+  color: #EB4331;
+  font-size: 32rpx;
+  font-weight: 700;
+}
