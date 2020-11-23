@@ -1,2 +1,21 @@
 <!--miniprogram/pages/word/word.wxml-->
-<text>miniprogram/pages/word/word.wxml</text>
+<view class="container" wx:if="{{!showSearch}}">
+    <view class="search-container">
+        <view class="search" bind:tap="onSearchTap">
+            <image class="search-image" src="/images/icon/search.png"></image>
+            <text class="search-text">搜索书籍</text>
+        </view>
+    </view>
+    <view class="content-container">
+        <view class="content-header">
+            <image class="header-image" src="/images/book/quality.png"></image>
+        </view>
+        <view class="book-container">
+            <block wx:for="{{books}}" wx:key="index">
+                <v-book class="book" book="{{item}}">
+                </v-book>
+            </block>
+        </view>
+    </view>
+</view>
+<v-search wx:if="{{showSearch}}" bind:back="onBackTap" more="{{more}}"></v-search>

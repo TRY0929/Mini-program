@@ -20,4 +20,13 @@
             </v-button>
         </view>
     </view>
+    <v-journal contents="{{latest.content}}" hidden="{{false}}" bgImg="{{latest.img_url}}"></v-journal>
+    <v-nav
+        title="{{latest.key_word}}"
+        class="nav"
+        bind:left="nextJournal"
+        bind:right="prevJournal"
+        latest="{{last}}"
+        first="{{first}}"
+    ></v-nav>
 </view>

@@ -1,0 +1,6 @@
+<!--components/journal/journal.wxml-->
+<view class="container" hidden="{{hidden}}">
+    <image class="classic-item" src="{{bgImg}}"></image>
+    <image class="tag" src=""></image>
+    <text class="content">{{contents}}</text>
+</view>
